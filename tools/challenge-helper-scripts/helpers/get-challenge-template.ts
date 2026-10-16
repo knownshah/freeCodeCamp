@@ -98,7 +98,10 @@ Test 1
 `;
 
 const getQuizChallengeTemplate = (options: ChallengeOptions): string => {
-  const count = options.questionCount!;
+  const count = options.questionCount;
+  if (count !== 10 && count !== 20) {
+    throw new Error('Quiz question count must be 10 or 20.');
+  }
 
   const regularQuestion = `### --question--
 
